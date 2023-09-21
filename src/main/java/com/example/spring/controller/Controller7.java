@@ -15,7 +15,7 @@ public class Controller7 {
         return "view1";
     }
 
-    @RequestMapping("sub2")
+    @RequestMapping("sub2") // 인터넷 브라우저 주소
     public String method2() {
         System.out.println("Controller7.method2");
         return "main8/html2";
@@ -30,7 +30,7 @@ public class Controller7 {
         System.out.println("Controller7.method3");
     }
 
-    @RequestMapping("sub4")
+    @RequestMapping("sub4") // 인터넷 브라우저 주소
     public String method4() {
         return "/main7/html4";
     }

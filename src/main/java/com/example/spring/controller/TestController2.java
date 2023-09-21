@@ -6,9 +6,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("main8")
+@RequestMapping("main8") // 인터넷 브라우저 주소
 public class TestController2 {
-    @RequestMapping("TestJsp2")
+    @RequestMapping("TestJsp2") // 인터넷 브라우저 주소
     public String method2(TestDto2 dto2, Model model) {
         model.addAttribute("car","자동차");
         model.addAttribute("run", "달린다");

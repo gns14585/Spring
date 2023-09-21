@@ -6,9 +6,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("main10")
+@RequestMapping("main10") // 인터넷 브라우저 주소
 public class TestController3 {
-    @RequestMapping("TestHtml")
+    @RequestMapping("TestHtml") // 인터넷 브라우저 주소
     public String method1(TestDto3 dt3, Model m) {
         m.addAttribute("name", "이정훈");
         m.addAttribute("age", 29);
