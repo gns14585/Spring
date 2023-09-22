@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequestMapping("main6")
-public class Controller6 {
+public class Controller06 {
     @RequestMapping("sub1")
 
     // /main6/sub1?name=son&address=paris

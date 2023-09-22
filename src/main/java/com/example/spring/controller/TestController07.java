@@ -10,7 +10,7 @@ import java.util.List;
 
 @Controller
 @RequestMapping("main10")
-public class TestController7 {
+public class TestController07 {
     @RequestMapping("Testjsp8")
     public void method1(Model model) {
         List<TestDto8> list = new ArrayList<>();

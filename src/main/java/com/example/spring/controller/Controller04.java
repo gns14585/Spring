@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 @RequestMapping("main4")
-public class Controller4 {
+public class Controller04 {
 
     // main4/sub1?name=son
     @RequestMapping("sub1")
