@@ -19,4 +19,15 @@ public class Controller8 {
         model.addAttribute("propone1", "😂");
         model.addAttribute("propTWO", "😊");
     }
+
+    @RequestMapping("sub3")
+    public void method3(Model model) {
+        model.addAttribute("myName","이정훈");
+        model.addAttribute("yourAddress", "seoul");
+        model.addAttribute("herEmail", "gns14585@naver.com");
+
+
+        // view name : /main8/sub3
+        // /WEB-INF/jsp/main8/sub3.jsp
+    }
 }
