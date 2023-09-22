@@ -35,6 +35,7 @@
 
 <table>
     <tr>
+        <td>번호</td>
         <td>영화</td>
         <td>나라</td>
         <td>종류</td>
@@ -46,6 +47,7 @@
 <%--    private String age;     // 연령--%>
     <c:forEach items="${mov}" var="item" varStatus="i">
         <tr>
+            <td>${i.count}</td>
             <td>${item.movie}</td>
             <td>${item.contry}</td>
             <td>${item.kind}</td>
