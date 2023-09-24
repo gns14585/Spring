@@ -1,4 +1,4 @@
-package com.example.spring.controller.Practice;
+package com.example.spring.domain;
 
 import lombok.Data;
 
@@ -6,6 +6,5 @@ import lombok.Data;
 public class MyDto19 {
     private String food;
     private String birthDate;
-    private String computer;
 }
 
