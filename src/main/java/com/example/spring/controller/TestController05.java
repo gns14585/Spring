@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequestMapping("main10")
-public class TestController5 {
+public class TestController05 {
     @RequestMapping("Testjsp5")
     public String method(TestDto5 dto5, Model model) {
         model.addAttribute("name", "LeeJungHoon");

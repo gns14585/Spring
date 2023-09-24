@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequestMapping("main7")
-public class Controller7 {
+public class Controller07 {
 
     // (RequestMapping) Handler Method
 

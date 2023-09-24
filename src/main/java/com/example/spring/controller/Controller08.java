@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequestMapping("main8")
-public class Controller8 {
+public class Controller08 {
     @RequestMapping("sub1")
     public void method1(Model model) { // lombok 임포트클래스 하면안되고 sprin framework 로 해야함
         model.addAttribute("attr1", "value1");
