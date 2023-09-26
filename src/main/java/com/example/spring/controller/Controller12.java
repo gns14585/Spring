@@ -45,4 +45,14 @@ public class Controller12 {
 
         model.addAttribute("mes", name + " 검색 결과 입니다.");
     }
+
+
+
+
+
+
+
+
+
+
 }
