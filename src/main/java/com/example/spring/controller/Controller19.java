@@ -1,12 +1,13 @@
 package com.example.spring.controller;
 
+import com.example.spring.domain.MyDto15;
+import com.example.spring.domain.MyDto16;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import javax.naming.Name;
 import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -87,7 +88,7 @@ public class Controller19 {
     }
 
     @GetMapping("sub3")
-    public void method4(Model model) throws Exception {
+    public void method3(Model model) throws Exception {
         List<Map<String, String>> list = new ArrayList<>();
 
         String sql = """
@@ -98,18 +99,162 @@ public class Controller19 {
         Statement statement = connection.createStatement();
         ResultSet resultSet = statement.executeQuery(sql);
 
+        model.addAttribute("shippers", list);
+
         try(connection; statement; resultSet;) {
-            while(resultSet.next()) {
+            while (resultSet.next()) {
                 Map<String, String> map = new HashMap<>();
                 map.put("id", resultSet.getString(1));
                 map.put("name", resultSet.getString(2));
                 map.put("phone", resultSet.getString(3));
 
                 list.add(map);
+            }
+        }
+        model.addAttribute("shippers", list);
+    }
+
+    @GetMapping("sub4")
+    public void method4(Model model) throws Exception {
+        // main19/sub4.jsp 작성
+        String sql = """
+                    SELECT CustomerID, CustomerName, City, Country FROM customers
+                    """;
+
+        Connection connection = dataSource.getConnection();
+        Statement statement = connection.createStatement();
+        ResultSet resultSet = statement.executeQuery(sql);
+
+        List<Map<String,String>> list = new ArrayList<>();
+
+
+        try(connection; statement; resultSet;) {
+            while (resultSet.next()) {
+                Map<String, String> map = new HashMap<>();
+                map.put("id", resultSet.getString(1));
+                map.put("name", resultSet.getString(2));
+                map.put("city", resultSet.getString(3));
+                map.put("country", resultSet.getString(4));
+
+                list.add(map);
 
             }
         }
-
-        model.addAttribute("shippers", list);
+        model.addAttribute("customers", list);
     }
+
+    @GetMapping("sub5")
+    public void method5(Model model) throws Exception {
+        String sql = """
+                SELECT ProductID, ProductName, Unit, Price FROM products
+                """;
+
+        Connection connection = dataSource.getConnection();
+        Statement statement = connection.createStatement();
+        ResultSet resultSet = statement.executeQuery(sql);
+
+        List<Map<String, Object>> list = new ArrayList<>();
+
+        try(connection; statement; resultSet;) {
+            while (resultSet.next()) {
+                Map<String, Object> map = new HashMap<>();
+                map.put("pid", resultSet.getString(1));
+                map.put("productName", resultSet.getString(2));
+                map.put("unit", resultSet.getString(3));
+                map.put("price", resultSet.getString(4));
+
+                list.add(map);
+            }
+        }
+        model.addAttribute("productList", list);
+    }
+
+
+    @GetMapping("sub6")
+    public void method6(Model model) throws Exception {
+        String sql = """
+                SELECT CustomerID, CustomerName, Address, Country FROM customers
+                """;
+
+        Connection connection = dataSource.getConnection();
+        Statement statement = connection.createStatement();
+        ResultSet resultSet = statement.executeQuery(sql);
+
+        List<MyDto15> list = new ArrayList<>();
+        try(connection; statement; resultSet;) {
+            while (resultSet.next()) {
+                MyDto15 dto = new MyDto15();
+                // 클래스명은 옆에 set.변수명
+                dto.setId(resultSet.getInt(1));
+                dto.setName(resultSet.getString(2));
+                dto.setAddress(resultSet.getString(3));
+                dto.setCountry(resultSet.getString(4));
+
+                list.add(dto);
+            }
+        }
+        model.addAttribute("customerList", list);
+    }
+
+    @GetMapping("sub7")
+    public String method7(Model model) throws Exception {
+        String sql = """
+                SELECT ProductID, ProductName, Unit, Price FROM products
+                """;
+
+        Connection connection = dataSource.getConnection();
+        Statement statement = connection.createStatement();
+        ResultSet resultSet = statement.executeQuery(sql);
+
+        List<MyDto16> list = new ArrayList<>();
+
+        try(connection; statement; resultSet;) {
+            while (resultSet.next()) {
+                MyDto16 myDto16 = new MyDto16();
+                myDto16.setPid(resultSet.getString(1));
+                myDto16.setProductName(resultSet.getString(2));
+                myDto16.setUnit(resultSet.getString(3));
+                myDto16.setPrice(resultSet.getString(4));
+
+                list.add(myDto16);
+            }
+        }
+
+        model.addAttribute("productList", list);
+
+
+        return "/main19/sub5";
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
