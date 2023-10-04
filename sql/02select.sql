@@ -13,7 +13,6 @@ SELECT * FROM orders;
 SELECT * FROM products;
 SELECT * FROM shippers;
 SELECT * FROM suppliers;
-
 --
 SELECT CustomerName -- column(열) 명 나열
 FROM customers-- table 명 나열
@@ -54,4 +53,12 @@ SELECT COUNT(*) FROM customers;
 SELECT COUNT(*) FROM employees;
 SELECT COUNT(*) FROM orders;
 
+-- 1) 공급자들이 있는 나라 수
+SELECT COUNT(DISTINCT Country) FROM suppliers;
+-- 2) 주문(ORDER) 건수
+SELECT COUNT(*) FROM orders;
+-- 3) 몇 개의 카테고리가 있는지 조회
+SELECT COUNT(*) FROM categories;
+-- 4) 고객이 있는 도시의 수
+SELECT COUNT(DISTINCT City) FROM customers;
 
