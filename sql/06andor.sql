@@ -20,8 +20,15 @@ SELECT * FROM suppliers WHERE Country = 'Sweden' OR Country = 'Italy';
 -- 2) 1963년 8월 생 직원 조회
 SELECT * FROM employees WHERE BirthDate >= '1963-08-01' AND BirthDate < '1963-09-01';
 -- 3) 가격이 100.00~200.00 (포함) 사이인 상품 조회
-SELECT * FROM products WHERE Price >= 10.00 AND Price <= 20.00;
+SELECT * FROM products WHERE Price >= 100.00 AND Price <= 200.00;
 -- 4) 1997년에 주문한 주문 조회
 SELECT * FROM orders WHERE OrderDate >= '1997-01-01' AND OrderDate < '1998-01-01';
+
+-- 여러 연산자 조합시 () 사용해서 우선순위 결정해줄 것
+
+-- 1번 카테고리인 상품 중 10달러 미만, 100달러 이상
+-- () 안쳤을때 제대로 안나오는 이유가 AND가 OR보다 우선순위라 AND먼저 계산하고 OR 진행해서 카테고리ID = 1번이 출력안됨
+-- 단 () 를 OR있는 조건식에 사용하게되면 OR이 우선순위가 더 높아져서 먼저 계산 후 AND 계산
+SELECT * FROM products WHERE (Price < 10 OR Price >= 100) AND (CategoryID = 1);
 
 
