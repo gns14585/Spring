@@ -52,22 +52,23 @@
 </style>
 
 <h3>${param.page} / ${lastPageNumber}</h3>
-<c:if test="${prevPageNumber > 0}">
-    <a href="/main22/sub4?page=${firstPage}">처음</a>
-    <a href="/main22/sub4?page=${prevPageNumber}"> 이전</a>
-</c:if>
-<c:forEach begin="${leftPageNumber}" end="${rightPageNumber}" var="pageNumber">
-    <a
-            <c:if test="${currentPage == pageNumber}">
-                class = "pa"
-            </c:if>
-            href="/main22/sub4?page=${pageNumber}">${pageNumber}</a>
-</c:forEach>
-<c:if test="${lastPageNumber >= nextPageNumber}">
-    <a href="/main22/sub4?page=${nextPageNumber}">다음</a>
-    <a href="/main22/sub4?page=${lastPageNumber}">마지막</a>
-</c:if>
-
+<div>
+    <c:if test="${prevPageNumber > 0}">
+        <a href="/main22/sub4?page=${firstPage}">처음</a>
+        <a href="/main22/sub4?page=${prevPageNumber}"> 이전</a>
+    </c:if>
+    <c:forEach begin="${leftPageNumber}" end="${rightPageNumber}" var="pageNumber">
+        <a
+                <c:if test="${currentPage == pageNumber}">
+                    class = "pa"
+                </c:if>
+                href="/main22/sub4?page=${pageNumber}">${pageNumber}</a>
+    </c:forEach>
+    <c:if test="${lastPageNumber >= nextPageNumber}">
+        <a href="/main22/sub4?page=${nextPageNumber}">다음</a>
+        <a href="/main22/sub4?page=${lastPageNumber}">마지막</a>
+    </c:if>
+</div>
 <table>
     <tr>
         <%--CustomerID, CustomerName, Address, City, Country--%>
