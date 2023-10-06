@@ -252,42 +252,37 @@ public class Controller20 {
 
     @GetMapping("sub11")
     public String method11(@RequestParam("country") List<String> countryList, Model model) throws Exception {
-        String questionMarks = "";
+        String rttr = "";
         for (int i = 0; i < countryList.size(); i++) {
-            questionMarks += "?";
+            rttr += "?";
             if (i < countryList.size()-1) {
-                questionMarks += ", ";
+                rttr += ", ";
             }
         }
         String sql = """
-                SELECT distinct Country
-                FROM suppliers
-                WHERE country IN ("""
+                SELECT DISTINCT Country FROM suppliers WHERE Country IN ("""
                 +
-                questionMarks
+                rttr
                 +
                 """
                 )
                 """;
-
         Connection connection = dataSource.getConnection();
         PreparedStatement statement = connection.prepareStatement(sql);
-
         for (int i = 0; i < countryList.size(); i++) {
-            statement.setString(i + 1, countryList.get(i));
+            statement.setString(i+1, countryList.get(i));
         }
-
         ResultSet resultSet = statement.executeQuery();
 
         List<String> list = new ArrayList<>();
-        try(connection; statement; resultSet;) {
+        try(connection; statement; resultSet) {
             while (resultSet.next()) {
                 list.add(resultSet.getString(1));
             }
         }
-
         model.addAttribute("countryList", list);
         return "/main20/sub11";
+
     }
 
 
