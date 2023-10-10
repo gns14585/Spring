@@ -234,7 +234,7 @@ public class Controller22 {
 
         rightPageNumber = Math.min(rightPageNumber, lastPageNumber);
 
-        model.addAttribute("firstPage", firstPage);pp
+        model.addAttribute("firstPage", firstPage);
         model.addAttribute("prevPageNumber", prevPageNumber);
         model.addAttribute("nextPageNumber", nextPageNumber);
         model.addAttribute("currentPage", page);
