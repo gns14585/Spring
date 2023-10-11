@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.sql.DataSource;
 import java.sql.*;
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -103,11 +104,12 @@ public class Controller24 {
         try(connection; statement;) {
             statement.setString(1, employee.getLastName());
             statement.setString(2, employee.getFirstName());
-            statement.setTimestamp(3, Timestamp.valueOf(employee.getBirthDate().atStartOfDay()));
+//            statement.setTimestamp(3, Timestamp.valueOf(employee.getBirthDate().atStartOfDay()));
             statement.setString(4, employee.getPhoto());
             statement.setString(5, employee.getNotes());
             int count = statement.executeUpdate();
 
+            // 해당 if문은 데이터들이 출력하는데 이상 없는지 콘솔로 확인하는용
             if (count == 1) {
                 System.out.println("이상없음");
             } else {

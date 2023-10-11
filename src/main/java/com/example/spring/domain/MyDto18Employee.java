@@ -8,7 +8,7 @@ import java.time.LocalDate;
 public class MyDto18Employee {
     private String lastName;
     private String firstName;
-    private LocalDate birthDate;
+    private String birthDate;
     private String photo;
     private String notes;
 }

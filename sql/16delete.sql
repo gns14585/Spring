@@ -16,4 +16,6 @@ SELECT * FROM products;
 DELETE FROM employees WHERE EmployeeID > 9;
 
 -- 2) 상품테이블에 오늘 입력한 레코드들 지우기
-DELETE FROM products WHERE ProductID > 77;
+SELECT * FROM customers;
+
+SELECT * FROM products;
