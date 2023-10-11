@@ -161,8 +161,6 @@ public class Controller25 {
         return "redirect:/main25/sub5";
     }
 
-    4.
-
     @GetMapping("sub9")
     public String method9(RedirectAttributes rttr) {
         // Controller의 request handler 메소드의 리턴이
