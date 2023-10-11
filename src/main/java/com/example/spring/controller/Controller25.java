@@ -161,6 +161,83 @@ public class Controller25 {
         return "redirect:/main25/sub5";
     }
 
+    @GetMapping("sub7")
+    public void method7(@RequestParam(value = "id", required = false) Integer employeeId, Model model) throws SQLException {
+        if (employeeId == null) {
+            return;
+        }
+        String sql = """
+                SELECT * FROM employees
+                WHERE employeeId = ?
+                """;
+
+        Connection connection = dataSource.getConnection();
+        PreparedStatement statement = connection.prepareStatement(sql);
+
+        try (connection; statement) {
+            statement.setInt(1, employeeId);
+
+            ResultSet resultSet = statement.executeQuery();
+
+            try (resultSet) {
+                if (resultSet.next()) {
+                    String lastName = resultSet.getString("lastName");
+                    String firstName = resultSet.getString("firstName");
+                    String birthDate = resultSet.getString("birthDate");
+                    String photo = resultSet.getString("photo");
+                    String notes = resultSet.getString("notes");
+
+                    model.addAttribute("employee", Map.of("lastName", lastName,
+                            "firstName", firstName,
+                            "birthDate", birthDate,
+                            "photo", photo,
+                            "notes", notes,
+                            "employeeId", employeeId));
+                }
+            }
+        }
+    }
+
+    @PostMapping("sub7")
+    public String method7(String lastName,
+                          String firstName,
+                          String birthDate,
+                          String photo,
+                          String notes,
+                          @RequestParam("id") Integer employeesId,
+                          RedirectAttributes rttr) throws SQLException {
+        String sql = """
+                UPDATE employees
+                SET LastName = ?,
+                FirstName = ?,
+                BirthDate = ?,
+                Photo = ?,
+                Notes = ?
+                WHERE EmployeeID = ?
+                """;
+        Connection connection = dataSource.getConnection();
+        PreparedStatement statement = connection.prepareStatement(sql);
+
+        try (connection; statement;) {
+            statement.setString(1, lastName);
+            statement.setString(2, firstName);
+            statement.setString(3, birthDate);
+            statement.setString(4, photo);
+            statement.setString(5, notes);
+            statement.setInt(6, employeesId);
+
+            int rowss = statement.executeUpdate();
+
+            if (rowss == 1) {
+                rttr.addFlashAttribute("message", "직원 정보가 변경되었습니다.");
+            } else {
+                rttr.addFlashAttribute("message", "직원 정보가 변경되지 않았습니다.");
+            }
+        }
+        rttr.addAttribute("id", employeesId);
+        return "redirect:/main25/sub7";
+    }
+
     @GetMapping("sub9")
     public String method9(RedirectAttributes rttr) {
         // Controller의 request handler 메소드의 리턴이
