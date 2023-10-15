@@ -230,11 +230,11 @@ public class Controller22 {
         int rightPageNumber = leftPageNumber + 4;
         int prevPageNumber = leftPageNumber - 5;
         int nextPageNumber = rightPageNumber + 1;
-        int firstPage = 1;
+        int firstPageNumber = 1;
 
         rightPageNumber = Math.min(rightPageNumber, lastPageNumber);
 
-        model.addAttribute("firstPage", firstPage);
+        model.addAttribute("firstPage", firstPageNumber);
         model.addAttribute("prevPageNumber", prevPageNumber);
         model.addAttribute("nextPageNumber", nextPageNumber);
         model.addAttribute("currentPage", page);
