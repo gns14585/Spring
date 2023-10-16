@@ -49,6 +49,7 @@ FROM products P
 GROUP BY C.CustomerID
 ORDER BY 2; -- 오름차순 (낮은 금액순)
 
+
 -- 10만 달러 이상 소비한 고객 조회
 -- 서브쿼리 방식
 SELECT *
