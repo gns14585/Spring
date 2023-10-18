@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
 public class MyApp16 {
     public static void main(String[] args) {
         ApplicationContext context = SpringApplication.run(MyApp16.class, args);
-        MyClass31 bean1 = context.getBean("myClass31Bean", MyClass31.class);
+        Object bean1 = context.getBean("myClass31Bean");
         MyClass30 bean2 = context.getBean("myClass30Bean", MyClass30.class);
 
         System.out.println("bean2 = " + bean2.hashCode()); // int
