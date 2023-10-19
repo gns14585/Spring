@@ -123,6 +123,7 @@ public interface MyDao4 {
             """)
     MyDto34Customer select9(Integer id);
 
+
     @Update("""
             UPDATE customers
             SET CustomerName = #{customerName},
@@ -135,6 +136,9 @@ public interface MyDao4 {
             """)
     int update2(MyDto34Customer customer);
 }
+
+
+
 
 
 

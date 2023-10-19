@@ -93,6 +93,7 @@ public class Controller30 {
     public void method9() {
 
     }
+
     @PostMapping("sub10")
     public void method10(MyDto32 emp) {
         int row = dao.insert2(emp);
@@ -123,6 +124,7 @@ public class Controller30 {
         MyDto33Employee employee = dao.select8(id);
         model.addAttribute("employee", employee);
     }
+
     @PostMapping("sub14")
     public String method14(MyDto33Employee employee, RedirectAttributes rttr) {
         // 직원 수정
@@ -147,6 +149,7 @@ public class Controller30 {
 
     // post / /main30/sub16
     // 고객 정보 수정 -> /main30/sub15?id=3 로 redirect
+
     @GetMapping("sub15")
     public void method15(Integer id, Model model) {
         MyDto34Customer customer = dao.select9(id);
@@ -158,9 +161,7 @@ public class Controller30 {
         int rows = dao.update2(customer);
 
         if (rows == 1) {
-            rttr.addFlashAttribute("message", "정보가 수정되었습니다.");
-        } else {
-            rttr.addFlashAttribute("message", "정보가 수정되지 않았습니다.");
+            rttr.addFlashAttribute("message", "정보가 수정 되었습니다.");
         }
 
         rttr.addAttribute("id", customer.getId());

@@ -13,13 +13,10 @@
 </head>
 <body>
 <form action="/main30/sub15">
+    <h3>고객 정보</h3>
     <input type="text" name="id" placeholder="고객번호">
     <button>조회</button>
 </form>
-
-<div>
-    <h3>${message}</h3>
-</div>
 
 <hr>
 
