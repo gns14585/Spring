@@ -190,5 +190,72 @@
     </script>
 </div>
 
+<div>
+    <button onclick="ajax10()">button10</button>
+    <script>
+        // city=서울&country=한국
+        function ajax10() {
+            axios.post("/main35/sub8", {
+               city: "서울",
+               country: "한국"
+            }, {
+                headers: {
+                    "content-type": "application/x-www-form-urlencoded"
+                }
+            });
+        }
+    </script>
+</div>
+
+<div>
+    <div>
+        <input type="text" id="input9">
+    </div>
+    <div>
+        <input type="text" id="input10">
+    </div>
+    <div>
+        <input type="text" id="input11">
+    </div>
+    <div>
+        <button onclick="ajax11()">button11</button>
+        <script>
+            function ajax11() {
+                const id = document.querySelector("#input9").value;
+                const lastName = document.querySelector("#input10").value;
+                const firstName = document.querySelector("#input11").value;
+                axios.post("/main35/sub9", {
+                    id,
+                    lastName,
+                    firstName
+                }, {
+                    headers: {
+                        "content-type" : "application/x-www-form-urlencoded"
+                    }
+                });
+            }
+        </script>
+    </div>
+</div>
+
+<div>
+    <div>
+        <input type="text" id="input12" value="이강인">
+    </div>
+    <div>
+        <input type="file" multiple id="input13" accept="image/*">
+    </div>
+    <div>
+        <button onclick="ajax12()">button12</button>
+        <script>
+            function ajax12() {
+                axios.postForm("/main35/sub10", {
+                    name: document.querySelector("#input12").value,
+                    files: document.querySelector("#input13").files
+                });
+            }
+        </script>
+    </div>
+</div>
 </body>
 </html>

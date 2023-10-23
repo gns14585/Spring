@@ -6,6 +6,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 @Controller
 @RequiredArgsConstructor
@@ -53,6 +55,32 @@ public class Controller35 {
     @PostMapping("sub7")
     public void method7() {
         System.out.println("Controller35.method7");
+    }
+
+    @PostMapping("sub8")
+    public void method8(String city, String country) {
+        System.out.println("city = " + city);
+        System.out.println("country = " + country);
+    }
+
+    @PostMapping("sub9")
+    public void method9(MyDto38 dto) {
+        System.out.println("dto = " + dto);
+    }
+
+    @PostMapping("sub10")
+    public void method10(String name,
+                         @RequestParam("files[]") MultipartFile[] files) {
+        System.out.println("name = " + name);
+
+        if (files != null) {
+            System.out.println("파일 목록");
+            for (MultipartFile file : files) {
+                if (file.getSize() > 0) {
+                    System.out.println(file.getOriginalFilename());
+                }
+            }
+        }
     }
 }
 
