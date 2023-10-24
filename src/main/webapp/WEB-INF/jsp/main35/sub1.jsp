@@ -257,5 +257,40 @@
         </script>
     </div>
 </div>
+
+<div>
+    <div>
+        <button onclick="ajax13()">button13</button>
+        <script>
+            function ajax13() {
+                axios.get("/main35/sub11");
+            }
+        </script>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </body>
 </html>
