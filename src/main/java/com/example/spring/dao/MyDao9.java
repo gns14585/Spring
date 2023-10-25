@@ -10,6 +10,5 @@ public interface MyDao9 {
             INSERT INTO employees (FirstName, LastName, BirthDate, Notes)
             VALUES (#{firstName}, #{lastName}, #{birthDate}, #{notes})
             """)
-
     int insertEmployee(MyDto33Employee dto);
 }
