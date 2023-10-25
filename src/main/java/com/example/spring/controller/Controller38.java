@@ -2,6 +2,7 @@ package com.example.spring.controller;
 
 import com.example.spring.dao.MyDao8;
 import com.example.spring.domain.MyDto33Employee;
+import com.example.spring.domain.MyDto45;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -87,10 +88,9 @@ public class Controller38 {
     unit(단위)
      */
 
-    @ResponseBody
     @GetMapping("sub7")
-    public Map<String, Object> method7(Integer id) {
-
+    @ResponseBody
+    public MyDto45 method7(Integer id) {
         return dao.selectByProductId2(id);
     }
 

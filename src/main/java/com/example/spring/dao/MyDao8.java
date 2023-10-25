@@ -1,9 +1,8 @@
 package com.example.spring.dao;
 
+import com.example.spring.domain.MyDto45;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.Map;
 
@@ -38,7 +37,7 @@ public interface MyDao8 {
             ON P.CategoryID = C.CategoryID
             WHERE P.ProductID = #{id}
             """)
-    Map<String, Object> selectByProductId2(Integer id);
+    MyDto45 selectByProductId2(Integer id);
 }
 
 

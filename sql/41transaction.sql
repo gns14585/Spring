@@ -28,7 +28,7 @@ ROLLBACK; -- 다른 연결에 반영 안된 상태에 있는 정보랑 동일하
 COMMIT; -- 변경내용이 반영되지 않은 다른 연결에 반영하기
 
 
-
+SELECT * FROM products WHERE ProductID = 5;
 
 
 
