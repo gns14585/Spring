@@ -29,7 +29,9 @@ SELECT ProductName, Price FROM products ORDER BY ProductID DESC;
 
 
 -- IFNULL : 첫번째 매개변수 값엔 컬럼명 , 두번째 매개변수엔 첫번째 컬럼명에있는 값이 null 이면 대체할 값 지정
-SELECT ProductName, IFNULL(Price, 0.00) FROM products ORDER BY ProductID DESC;
+SELECT ProductName, IFNULL(Price, 0.00)
+FROM products
+ORDER BY ProductID DESC;
 
 -- 1) contactName이 null인 고객들 조회
 SELECT * FROM customers WHERE ContactName IS NULL;
